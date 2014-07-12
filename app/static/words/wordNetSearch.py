@@ -21,9 +21,11 @@ print bearHyponyms
 
 #Print all the synsets
 for synset in list(wn.synsets('bear')):
-	print type(synset)
-	#bear = wn.synset(synset)
-	#bearHypernyms = bear.hypernyms()
-	#bearHyponyms = bear.hyponyms()
-	#print bearHypernyms
-	#print bearHyponyms
+	print synset
+	bear = synset
+	bearHypernyms = bear.hypernyms()
+	bearHyponyms = bear.hyponyms()
+	print "Hypernyms are..."
+	print bearHypernyms
+	print "Hyponyms are..."
+	print bearHyponyms
