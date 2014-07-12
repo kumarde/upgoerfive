@@ -1,9 +1,10 @@
 import nltk
 from nltk.corpus import wordnet as wn
 
+WORDS = set()
+
 def app_logic():
 	pass
-WORDS = set()
 
 def generate_words(filename):
   return set(line.strip() for line in open(filename))
