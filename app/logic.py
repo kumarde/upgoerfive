@@ -22,12 +22,12 @@ def explore_syn_tree(word, pos=None):
 		posSet = True
 	for synset in synsets:
 		matching_hypernym = explore_hypernyms(synset)
-		if(matching_hypernym != None):
+		if matching_hypernym is not None:
 			return matching_hypernym
 		matching_hyponym = explore_hyponyms(synset)
-		if(matching_hyponym != None):
+		if matching_hyponym is not None:
 			return matching_hyponym
-	#Some handling logic
+	#Somed handling logic
 	print "Abhishek"
 	return "Abhishek"
 
