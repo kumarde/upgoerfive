@@ -8,11 +8,8 @@ def generate_words(filename):
   return set(line.strip() for line in open(filename))
 
 def app_logic(sentence):
-	sentence_split = sentence.split(" ")
-	new_word_list = sentence_split
-	for word in sentence_split:
-			
-
+  new_word_list = [explore_syn_tree(word) for word in sentence.split(' ')]
+  return ' '.join(new_word_list)
 
 def check_in_words(word):
   return bool(word in WORDS)
