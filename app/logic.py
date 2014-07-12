@@ -35,6 +35,22 @@ def explore_hyponyms(syn):
 	return None
 
 def explore_hypernyms(syn):
-	return None
+    count = 0
+    queue = deque()
+    visited = set()
+    queue.append(syn)
+    visited.add(syn)
+    while queue:
+        current = queue.popleft()
+        if check_in_words(current.name):
+            return current.name
+        for child in current.hypernyms():
+            if child not in visited:
+                visited.add(child)
+                deque.append(child)
+                count += 1
+        if count == 10:
+            break
+    return "Debug12"
 
 #if __name__ == '__main__':
