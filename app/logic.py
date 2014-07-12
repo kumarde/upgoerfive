@@ -4,18 +4,18 @@ from collections import deque
 
 
 class SimpleSentenceGenerator:
-  def __init__(filename):
+  def __init__(self, filename):
     WORDS = set(line.strip() for line in open(filename))
 
 
-  def app_logic(sentence):
+  def app_logic(self, sentence):
     new_word_list = [explore_syn_tree(word) for word in sentence.split(' ')]
     return ' '.join(new_word_list)
 
-  def check_in_words(word):
+  def check_in_words(self, word):
     return bool(word in WORDS)
 
-  def explore_syn_tree(word, pos=None):
+  def explore_syn_tree(self, word, pos=None):
 	  if check_in_words(word):
 	    return word
 
@@ -36,7 +36,7 @@ class SimpleSentenceGenerator:
     #Some handling logic
     return "thing"
 
-  def explore_hyponyms(syn):
+  def explore_hyponyms(self, syn):
       count = 0
       queue = deque()
       visited = set()
@@ -56,7 +56,7 @@ class SimpleSentenceGenerator:
               break
       return None
 
-  def explore_hypernyms(syn):
+  def explore_hypernyms(self, syn):
       count = 0
       queue = deque()
       visited = set()
