@@ -1,0 +1,13 @@
+{% block content %}
+<h1>Up Goer Five</h1>
+<form action="/" method="post" name="query">
+  {{form.hidden_tag()}}
+  <p>
+    You've got the brain of a two year old. We're here to help. 
+    Enter in a sentence you saw today that bamboozled you. <br> <br>
+    {{form.sentence(size=500)}} <br>
+  </p>
+  <p><input type="submit" value="Go!"></p>
+</form>
+{% endblock %}
+
