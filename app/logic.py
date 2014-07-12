@@ -3,9 +3,16 @@ from nltk.corpus import wordnet as wn
 
 def app_logic():
 	pass
+WORDS = set()
 
-def check_in_1000_words(word):
-	pass
+def generate_words(filename):
+  return set(line.strip() for line in open(filename))
+
+def app_logic():
+  pass
+
+def check_in_words(word):
+  return word in WORDS 
 
 def explore_syn_tree(word, pos=None):
 	synsets = None
@@ -32,4 +39,4 @@ def explore_hyponyms(syn):
 def explore_hypernyms(syn):
 	return None
 
-explore_syn_tree("hi")
+#if __name__ == '__main__':
