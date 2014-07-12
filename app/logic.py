@@ -1,14 +1,12 @@
 import nltk
 from nltk.corpus import wordnet as wn
+from collections import deque
 
 WORDS = set()
 
 def generate_words(filename):
   return set(line.strip() for line in open(filename))
-
-def app_logic():
-  pass
-
+def app_logic(): pass 
 def check_in_words(word):
   return word in WORDS 
 
@@ -43,14 +41,16 @@ def explore_hypernyms(syn):
     while queue:
         current = queue.popleft()
         if check_in_words(current.name):
+	    print current.name
             return current.name
         for child in current.hypernyms():
             if child not in visited:
                 visited.add(child)
-                deque.append(child)
+                queue.append(child)
                 count += 1
         if count == 10:
             break
     return "Debug12"
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
+	print explore_syn_tree("hi")
