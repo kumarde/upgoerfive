@@ -25,7 +25,7 @@ def index():
 
 @app.route('/query/<my_string>')
 def query(my_string):
-  logic.set_words('words/1000base.txt')
+  logic.set_words('../words/1000base.txt')
   return logic.app_logic(my_string)
 
 def connect_db():

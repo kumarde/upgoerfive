@@ -65,7 +65,7 @@ def explore_hypernyms(syn):
     
     while queue:
         current = queue.popleft()
-	      if check_in_words(str(current.lemmas[0].name)):
+	if check_in_words(str(current.lemmas[0].name)):
             return str(current.lemmas[0].name)
         for child in current.hypernyms():
             if child not in visited:
