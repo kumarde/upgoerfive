@@ -23,13 +23,13 @@ def explore_syn_tree(word, pos=None):
 		if(matching_hyponym != None):
 			return matching_hyponym
 	#Some handling logic
+	print "Abhishek"
 	return "Abhishek"
 
 def explore_hyponyms(syn):
-	pass
+	return None
 
 def explore_hypernyms(syn):
-	pass
+	return None
 
-
-
+explore_syn_tree("hi")
