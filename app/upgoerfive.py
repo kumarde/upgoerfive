@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from forms import QueryForm
+from logic import app_logic
 import nltk
 
 app = Flask(__name__)
@@ -14,13 +15,17 @@ app.config.update(dict(
   PASSWORD='hackny'
 ))
 
-@app.route('/') 
+@app.route('/', methods=['GET', 'POST']) 
 def index():
   #return 'Hello World!'
   form = QueryForm()
-  #if request.method == 'POST':
+  if request.method == 'POST': 
+    return query(request.form['sentence'])
   return render_template('index.html', form=form)
 
+@app.route('/query/<my_string>')
+def query(my_string):
+  return app_logic(my_string)
 
 def connect_db():
   rv = sqlite3.connect(app.config['DATABASE'])
