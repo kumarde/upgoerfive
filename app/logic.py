@@ -2,7 +2,7 @@ import nltk
 from nltk.corpus import wordnet as wn
 
 def app_logic():
-
+	pass
 
 def check_in_1000_words(word):
 	pass
@@ -29,7 +29,7 @@ def explore_hyponyms(syn):
 	pass
 
 def explore_hypernyms(syn):
-	
+	pass
 
 
 
