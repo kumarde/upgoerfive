@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from forms import QueryForm
-from logic import app_logic
+import logic
 import nltk
 
 app = Flask(__name__)
@@ -25,7 +25,8 @@ def index():
 
 @app.route('/query/<my_string>')
 def query(my_string):
-  return app_logic(my_string)
+  logic.set_words('words/1000base.txt')
+  return logic.app_logic(my_string)
 
 def connect_db():
   rv = sqlite3.connect(app.config['DATABASE'])

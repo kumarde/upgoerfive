@@ -4,8 +4,8 @@ from collections import deque
 
 WORDS = set()
 
-def generate_words(filename):
-  return set(line.strip() for line in open(filename))
+def set_words(filename):
+  WORDS = set(line.strip() for line in open(filename))
 
 def app_logic(sentence):
   new_word_list = [explore_syn_tree(word) for word in sentence.split(' ')]
