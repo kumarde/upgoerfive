@@ -5,32 +5,31 @@ from collections import deque
 
 class SimpleSentenceGenerator:
   def __init__(self, filename):
-    WORDS = set(line.strip() for line in open(filename))
+    self.words = set(line.strip() for line in open(filename))
 
 
   def app_logic(self, sentence):
-    new_word_list = [explore_syn_tree(word) for word in sentence.split(' ')]
+    new_word_list = [self.explore_syn_tree(word) for word in sentence.split(' ')]
     return ' '.join(new_word_list)
 
   def check_in_words(self, word):
-    return bool(word in WORDS)
+    return bool(word in self.words)
 
   def explore_syn_tree(self, word, pos=None):
-	  if check_in_words(word):
-	    return word
-
-	  synsets = None
-	  posSet = False
-	  if pos is None:
-		  synsets = wn.synsets(word)
+    if self.check_in_words(word):
+      return word
+    synsets = None
+    posSet = False
+    if pos is None:
+      synsets = wn.synsets(word)
     else:
       synsets = wn.synsets(word, pos=pos)
       posSet = True
     for synset in synsets:
-      matching_hypernym = explore_hypernyms(synset)
+      matching_hypernym = self.explore_hypernyms(synset)
       if matching_hypernym is not None:
         return matching_hypernym
-      matching_hyponym = explore_hyponyms(synset)
+      matching_hyponym = self.explore_hyponyms(synset)
       if matching_hyponym is not None:
         return matching_hyponym
     #Some handling logic
@@ -45,7 +44,7 @@ class SimpleSentenceGenerator:
       
       while queue:
           current = queue.popleft()
-          if check_in_words(str(current.lemmas[0].name)):
+          if self.check_in_words(str(current.lemmas[0].name)):
             return str(current.lemmas[0].name)
           for child in current.hyponyms():
               if child not in visited:
@@ -65,7 +64,7 @@ class SimpleSentenceGenerator:
       
       while queue:
           current = queue.popleft()
-          if check_in_words(str(current.lemmas[0].name)):
+          if self.check_in_words(str(current.lemmas[0].name)):
               return str(current.lemmas[0].name)
           for child in current.hypernyms():
               if child not in visited:

@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from forms import QueryForm
 import logic
+from logic import SimpleSentenceGenerator
 import nltk
 
 app = Flask(__name__)
@@ -26,7 +27,7 @@ def index():
 @app.route('/query/<my_string>')
 def query(my_string):
   simple_sentence = SimpleSentenceGenerator('../words/1000base.txt') 
-  return logic.app_logic(my_string)
+  return simple_sentence.app_logic(my_string)
 
 def connect_db():
   rv = sqlite3.connect(app.config['DATABASE'])
