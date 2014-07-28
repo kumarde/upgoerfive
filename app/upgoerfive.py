@@ -21,10 +21,14 @@ def index():
   #return 'Hello World!'
   form = QueryForm()
   if request.method == 'POST': 
-    return query(request.form['sentence'])
+    return testing(request.form['sentence'].lower())
   return render_template('index.html', form=form)
 
-@app.route('/query/<my_string>')
+@app.route('/testing', methods=['GET', 'POST'])
+def testing(sentence):
+  simple_sentence = SimpleSentenceGenerator('../words/1000base.txt')
+  return simple_sentence.test_logic(sentence) 
+
 def query(my_string):
   simple_sentence = SimpleSentenceGenerator('../words/1000base.txt') 
   return simple_sentence.app_logic(my_string)
