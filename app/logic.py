@@ -155,22 +155,22 @@ class SimpleSentenceGenerator:
     return plural
 
 # if __name__ == '__main__':
-#  	WORDS = generate_words('../words/1000base.txt')
-#  	print "we are the best hackers in the nation"
-#  	print app_logic("we are the best hackers in the nation")
-#  	print "will code for food"
-#  	print app_logic("will code for food")
-#  	print "trains are hilarious at night"
-#  	print app_logic("trains are hilarious at night")
-#  	print "the subway is the best place to find cold pizza"
-#  	print app_logic("the subway is the best place to find cold pizza")
-#  	print "dawn of the planet of the apes"
-#  	print app_logic("dawn of the planet of the apes")
-#  	print "breaking bad is the best television show to ever exist"
-#  	print app_logic("breaking bad is the best television show to ever exist")
-#  	print "et phone home"
-#  	print app_logic("et phone home")
-#  	print "this was a lot of fun"
-#  	print app_logic("this was a lot of fun")
-#  	print "comedy is the essence of humor"
-#  	print app_logic("comedy is the essence of humor")
+#   WORDS = generate_words('../words/1000base.txt')
+#   print "we are the best hackers in the nation"
+#   print app_logic("we are the best hackers in the nation")
+#   print "will code for food"
+#   print app_logic("will code for food")
+#   print "trains are hilarious at night"
+#   print app_logic("trains are hilarious at night")
+#   print "the subway is the best place to find cold pizza"
+#   print app_logic("the subway is the best place to find cold pizza")
+#   print "dawn of the planet of the apes"
+#   print app_logic("dawn of the planet of the apes")
+#   print "breaking bad is the best television show to ever exist"
+#   print app_logic("breaking bad is the best television show to ever exist")
+#   print "et phone home"
+#   print app_logic("et phone home")
+#   print "this was a lot of fun"
+#   print app_logic("this was a lot of fun")
+#   print "comedy is the essence of humor"
+#   print app_logic("comedy is the essence of humor")
