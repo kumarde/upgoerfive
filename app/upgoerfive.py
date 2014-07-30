@@ -1,6 +1,6 @@
 import os
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-from forms import QueryForm
+from flask import Flask, request, session, jsonify, g, redirect, url_for, abort, render_template, flash
+from forms import QueryForm, InputForm
 import logic
 from logic import SimpleSentenceGenerator
 import nltk
@@ -16,18 +16,16 @@ app.config.update(dict(
   PASSWORD='hackny'
 ))
 
-@app.route('/', methods=['GET', 'POST']) 
+@app.route('/', methods=['GET']) 
 def index():
-  #return 'Hello World!'
-  form = QueryForm()
-  if request.method == 'POST': 
-    return testing(request.form['sentence'].lower())
+  form = InputForm()
   return render_template('index.html', form=form)
 
-@app.route('/testing', methods=['GET', 'POST'])
-def testing(sentence):
+@app.route('/sentence')
+def testing():
+  sentence = request.args.get('sentence', "Saturn five", type=str)
   simple_sentence = SimpleSentenceGenerator('../words/1000base.txt')
-  return simple_sentence.test_logic(sentence) 
+  return jsonify(sentence=simple_sentence.test_logic(sentence)) 
 
 def query(my_string):
   simple_sentence = SimpleSentenceGenerator('../words/1000base.txt') 

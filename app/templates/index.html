@@ -1,13 +1,22 @@
-{% block content %}
-<h1>Up Goer Five</h1>
-<form action="/" method="post" name="query">
-  {{form.hidden_tag()}}
-  <p>
-    You've got the brain of a two year old. We're here to help. 
-    Enter in a sentence you saw today that bamboozled you. <br> <br>
-    {{form.sentence(size=500)}} <br>
-  </p>
-  <p><input type="submit" value="Go!"></p>
-</form>
+<!DOCTYPE html>
+<head>
+  <title> upgoerfive </title>
+  <link href = "../static/css/layout.css" rel = "stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Delius+Unicase' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+</head>
+{% block body %}
+  <script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+  </script>
+  <h1>Up Goer Five</h1>
+  <p> Enter a sentence. Get something kind of similar. </p>
+  <form method="post" name="query" class="centered">
+    {{form.hidden_tag()}}
+    {{form.input(class_="centered", placeholder="Enter a sentence. Any sentence.", size=150)}} 
+    <p><input type="submit" id="submit-form" value="Go!"></p>
+  </form>
+  <p id="theData"></p>
+  <script src = "../static/javascript/main.js"></script>
 {% endblock %}
 
