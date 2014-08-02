@@ -34,12 +34,6 @@ class SimpleSentenceGenerator:
       return "hard"
     if word_tuple[0] == "saturn":
       return "up goer"
-    if word_tuple[0] == "simple":
-      return "easy"
-    if word_tuple[0] == "shady":
-      return "unusual"
-    if word_tuple[0] == "questionable":
-      return "shady"
     synsets = None
     posSet = False
     if pos is None:
